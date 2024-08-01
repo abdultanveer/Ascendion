@@ -3,6 +3,7 @@ package com.example.ascendion
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
@@ -11,6 +12,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var  nameEditText: EditText    //declaration
     lateinit var mainTextView: TextView
 
+    var TAG = MainActivity::class.java.simpleName
 //componentwillmount
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,11 +20,15 @@ class MainActivity : AppCompatActivity() {
 
         nameEditText = findViewById(R.id.etName)  //initialization
         mainTextView = findViewById(R.id.tvMain)
-    }
+    Log.i(TAG,"im main oncreate")
+
+}
 
     //componentdidmount
     override fun onStart() {
         super.onStart()
+        Log.e(TAG,"im main onstart")
+
     }
 
 
@@ -36,6 +42,8 @@ class MainActivity : AppCompatActivity() {
     fun launchHome(view: View) {
         var homeIntention = Intent(this,HomeActivity::class.java)
         startActivity(homeIntention)
+        Log.w(TAG,"im main launchHome")
+
     }
 
 }
