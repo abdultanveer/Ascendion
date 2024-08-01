@@ -1,5 +1,6 @@
 package com.example.ascendion
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -30,6 +31,11 @@ class MainActivity : AppCompatActivity() {
         var data = nameEditText.text.toString()
         //put it on the textview
         mainTextView.setText(data)
+    }
+
+    fun launchHome(view: View) {
+        var homeIntention = Intent(this,HomeActivity::class.java)
+        startActivity(homeIntention)
     }
 
 }
