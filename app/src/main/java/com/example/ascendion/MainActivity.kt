@@ -1,8 +1,10 @@
 package com.example.ascendion
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.AlarmClock
 import android.util.Log
 import android.view.View
 import android.widget.EditText
@@ -49,6 +51,29 @@ class MainActivity : AppCompatActivity() {
         startActivity(homeIntention)
         Log.w(TAG,"im main launchHome")
 
+    }
+
+    fun startDialer(view: View) {
+
+        var dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:9876543"))
+        startActivity(dialIntent)
+    }
+
+    fun setAlarm(view: View) {
+        createAlarm("ascendion",15,31)
+
+    }
+
+
+    fun createAlarm(message: String, hour: Int, minutes: Int) {
+        val intent = Intent(AlarmClock.ACTION_SET_ALARM).apply {
+            putExtra(AlarmClock.EXTRA_MESSAGE, message)
+            putExtra(AlarmClock.EXTRA_HOUR, hour)
+            putExtra(AlarmClock.EXTRA_MINUTES, minutes)
+        }
+       /// if (intent.resolveActivity(packageManager) != null) { checking if alarm clock exist on the ph
+            startActivity(intent)
+        //}
     }
 
 }
