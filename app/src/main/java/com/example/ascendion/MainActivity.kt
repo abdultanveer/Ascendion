@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun clickHandler(view: View) {
+    fun clickHandler(view: View) {     //method header/signature
         //get the data from edittext
         var data = nameEditText.text.toString()
         //put it on the textview
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun launchHome(view: View) {
-        var homeIntention = Intent(this,HomeActivity::class.java)
+        var homeIntention = Intent(this,HomeActivity::class.java)  //explicit intent
         startActivity(homeIntention)
         Log.w(TAG,"im main launchHome")
 
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
 
     fun startDialer(view: View) {
 
-        var dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:9876543"))
+        var dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:9876543"))  //implicit intent
         startActivity(dialIntent)
     }
 
