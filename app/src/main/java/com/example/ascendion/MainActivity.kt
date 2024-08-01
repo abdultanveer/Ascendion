@@ -37,6 +37,11 @@ class MainActivity : AppCompatActivity() {
         var data = nameEditText.text.toString()
         //put it on the textview
         mainTextView.setText(data)
+        var homeIntention = Intent(this,HomeActivity::class.java)
+        homeIntention.putExtra("akey",data)
+        Log.v(TAG,"im main clickHandler")
+
+        startActivity(homeIntention)
     }
 
     fun launchHome(view: View) {
