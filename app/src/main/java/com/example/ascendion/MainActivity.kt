@@ -42,8 +42,16 @@ class MainActivity : AppCompatActivity() {
         var homeIntention = Intent(this,HomeActivity::class.java)
         homeIntention.putExtra("akey",data)
         Log.v(TAG,"im main clickHandler")
-
+        add(10,20)
         startActivity(homeIntention)
+        throw NullPointerException("demo crash")
+    }
+
+    private fun add(i: Int, i1: Int) {
+
+        var c =  i + i1
+        var d = c * i +10
+
     }
 
     fun launchHome(view: View) {
