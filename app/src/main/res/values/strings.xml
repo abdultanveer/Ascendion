@@ -2,5 +2,9 @@
     <string name="app_name">Ascendion</string>
     <string name="enter_name">Enter your name</string>
     <string name="enter_password">enter your password</string>
+    <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 
 </resources>
