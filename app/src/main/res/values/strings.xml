@@ -2,5 +2,8 @@
     <string name="app_name">Ascendion</string>
     <string name="enter_name">Enter your name</string>
     <string name="enter_password">enter your password</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 
 </resources>
