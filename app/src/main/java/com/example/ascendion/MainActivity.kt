@@ -49,8 +49,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun add(i: Int, i1: Int) {
 
-        var c =  i + i1
-        var d = c * i +10
+        repeat(2) {
+            var c = i + i1
+            var d = c * i + 10
+        }
 
     }
 
