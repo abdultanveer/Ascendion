@@ -1,8 +1,8 @@
 package com.example.ascendion
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.AlarmClock
 import android.util.Log
@@ -10,7 +10,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : Activity() {
     lateinit var  nameEditText: EditText    //declaration
     lateinit var mainTextView: TextView
 
