@@ -12,24 +12,31 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet.Constraint
+import com.example.ascendion.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : Activity() {
-    lateinit var  nameEditText: EditText    //declaration
-    lateinit var mainTextView: TextView
-    lateinit var  someButton:Button
+
+    private lateinit var binding: ActivityMainBinding
+
+    /*  lateinit var  nameEditText: EditText    //declaration
+      lateinit var mainTextView: TextView
+      lateinit var  someButton:Button*/
 
     var TAG = MainActivity::class.java.simpleName
 //componentwillmount
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+       // setContentView(R.layout.activity_main)
+    binding = ActivityMainBinding.inflate(layoutInflater)
+    val view = binding.root
+    setContentView(view)
 
-        nameEditText = findViewById(R.id.etName)  //initialization
-        mainTextView = findViewById(R.id.tvMain)
-        someButton = findViewById(R.id.btnSome)
+    /* nameEditText = findViewById(R.id.etName)  //initialization
+     mainTextView = findViewById(R.id.tvMain)
+     someButton = findViewById(R.id.btnSome)*/
 
-    someButton.setOnClickListener{
+   binding.btnSome.setOnClickListener{
         var view :ConstraintLayout =  findViewById(R.id.clayout)
         Snackbar.make(this,view," deleted email",Snackbar.LENGTH_SHORT)
             .setAction("undo",{Log.i(TAG,"undoing deletion")})
@@ -51,9 +58,9 @@ class MainActivity : Activity() {
 
     fun clickHandler(view: View) {     //method header/signature
         //get the data from edittext
-        var data = nameEditText.text.toString()
+        var data = binding.etName.text.toString()
         //put it on the textview
-        mainTextView.setText(data)
+        binding.tvMain.setText(data)
         var homeIntention = Intent(this,HomeActivity::class.java)
         homeIntention.putExtra("akey",data)
         Log.v(TAG,"im main clickHandler")
