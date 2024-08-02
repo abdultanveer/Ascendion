@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/clayout"
     tools:context=".MainActivity">
 
     <EditText
@@ -86,4 +87,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/etPass"
         app:layout_constraintTop_toTopOf="@+id/etPass" />
+
+    <Button
+        android:id="@+id/btnSome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="29dp"
+        android:text="some"
+        app:layout_constraintStart_toStartOf="@+id/btnCancel"
+        app:layout_constraintTop_toBottomOf="@+id/btnCancel" />
 </androidx.constraintlayout.widget.ConstraintLayout>

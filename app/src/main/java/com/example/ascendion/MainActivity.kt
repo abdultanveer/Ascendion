@@ -7,12 +7,17 @@ import android.os.Bundle
 import android.provider.AlarmClock
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet.Constraint
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : Activity() {
     lateinit var  nameEditText: EditText    //declaration
     lateinit var mainTextView: TextView
+    lateinit var  someButton:Button
 
     var TAG = MainActivity::class.java.simpleName
 //componentwillmount
@@ -22,6 +27,16 @@ class MainActivity : Activity() {
 
         nameEditText = findViewById(R.id.etName)  //initialization
         mainTextView = findViewById(R.id.tvMain)
+        someButton = findViewById(R.id.btnSome)
+
+    someButton.setOnClickListener{
+        var view :ConstraintLayout =  findViewById(R.id.clayout)
+        Snackbar.make(this,view," deleted email",Snackbar.LENGTH_SHORT)
+            .setAction("undo",{Log.i(TAG,"undoing deletion")})
+            .show()
+    }
+
+
     Log.i(TAG,"im main oncreate")
 
 }
@@ -44,7 +59,7 @@ class MainActivity : Activity() {
         Log.v(TAG,"im main clickHandler")
         add(10,20)
         startActivity(homeIntention)
-        throw NullPointerException("demo crash")
+       // throw NullPointerException("demo crash")
     }
 
     private fun add(i: Int, i1: Int) {
