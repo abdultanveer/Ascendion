@@ -11,7 +11,9 @@ import com.example.ascendion.databinding.FragmentNotificationsBinding
 import com.example.ascendion.datastorage.Item
 import com.example.ascendion.datastorage.ItemDao
 import com.example.ascendion.datastorage.ItemRoomDatabase
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 class NotificationsFragment : Fragment() {
@@ -47,6 +49,17 @@ class NotificationsFragment : Fragment() {
         dao = database.itemDao()
         binding.btnInsert.setOnClickListener {
             insertItemDb()
+        }
+
+        binding.btnGet.setOnClickListener {
+            retreiveData()
+        }
+    }
+
+    private fun retreiveData() {
+        GlobalScope.launch(Dispatchers.Main) {
+         var firstItem =   dao.getItems().first()
+            binding.tvRetreive.text = firstItem.toString()
         }
     }
 
