@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.ascendion.databinding.FragmentHomeBinding
 
@@ -44,14 +45,29 @@ class HomeFragment : Fragment() {
         binding.btnInc.setOnClickListener {
             homeViewModel.incrementCount()
             binding.tvHome.text = ""+homeViewModel.count
-
            // count++
            // binding.tvHome.text = ""+count
         }
+
+        binding.btnTimer.setOnClickListener {
+            homeViewModel.startTimer()
+            binding.tvHome.text = ""+homeViewModel._seconds
+        }
+
+        homeViewModel._seconds.observe(this,secondsObserver)
+
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    var secondsObserver : Observer<Int> = object :Observer<Int>{
+        override fun onChanged(changedValue: Int) {
+            binding.tvHome.text = ""+changedValue
+        }
     }
 }

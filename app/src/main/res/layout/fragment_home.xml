@@ -39,4 +39,12 @@
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/btnInc"
         app:layout_constraintTop_toTopOf="@+id/btnInc" />
+
+    <Button
+        android:id="@+id/btnTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="timer"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="137dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
