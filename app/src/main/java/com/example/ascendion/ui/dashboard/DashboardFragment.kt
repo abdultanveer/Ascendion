@@ -4,17 +4,25 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.RecyclerView.Recycler
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ascendion.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
 
-    var data = arrayOf("india","hindi","tiger","himalaya","india","hindi","tiger","himalaya",)
+    var data = arrayOf("india","hindi","tiger","himalaya","india","hindi","tiger","himalaya",
+        "india","hindi","tiger","himalaya","india","hindi","tiger","himalaya",
+        "india","hindi","tiger","himalaya","india","hindi","tiger","himalaya",
+        "india","hindi","tiger","himalaya","india","hindi","tiger","himalaya",
+        "india","hindi","tiger","himalaya","india","hindi","tiger","himalaya",
+        "india","hindi","tiger","himalaya","india","hindi","tiger","himalaya",
+        "india","hindi","tiger","himalaya","india","hindi","tiger","himalaya",
+        )
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -30,6 +38,10 @@ class DashboardFragment : Fragment() {
 
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        //put the plug into the adapter
+        var dataAdapter = DataAdapter(data)
+        binding.recyclerview.layoutManager = LinearLayoutManager(activity)
+        binding.recyclerview.adapter = dataAdapter
 
         val textView: TextView = binding.textDashboard
         dashboardViewModel.text.observe(viewLifecycleOwner) {
