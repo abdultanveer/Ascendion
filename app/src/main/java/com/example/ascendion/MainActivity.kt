@@ -7,21 +7,17 @@ import android.os.Bundle
 import android.provider.AlarmClock
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintSet.Constraint
+import androidx.lifecycle.ViewModelProvider
 import com.example.ascendion.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : Activity() {
+   // var count = 0
 
     private lateinit var binding: ActivityMainBinding
+    lateinit var viewModel: MainViewModel
 
-    /*  lateinit var  nameEditText: EditText    //declaration
-      lateinit var mainTextView: TextView
-      lateinit var  someButton:Button*/
 
     var TAG = MainActivity::class.java.simpleName
 //componentwillmount
@@ -32,21 +28,23 @@ class MainActivity : Activity() {
     val view = binding.root
     setContentView(view)
 
-    /* nameEditText = findViewById(R.id.etName)  //initialization
-     mainTextView = findViewById(R.id.tvMain)
-     someButton = findViewById(R.id.btnSome)*/
-
-   binding.btnSome.setOnClickListener{
-        var view :ConstraintLayout =  findViewById(R.id.clayout)
-        Snackbar.make(this,view," deleted email",Snackbar.LENGTH_SHORT)
-            .setAction("undo",{Log.i(TAG,"undoing deletion")})
-            .show()
-    }
+    binding.btnSome.setOnClickListener{
+       //displaySnackBar()
+      // count++
+      // binding.tvMain.text = ""+count
+   }
 
 
     Log.i(TAG,"im main oncreate")
 
 }
+
+    private fun displaySnackBar() {
+        var view: ConstraintLayout = findViewById(R.id.clayout)
+        Snackbar.make(this, view, " deleted email", Snackbar.LENGTH_SHORT)
+            .setAction("undo", { Log.i(TAG, "undoing deletion") })
+            .show()
+    }
 
     //componentdidmount
     override fun onStart() {
