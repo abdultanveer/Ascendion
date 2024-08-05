@@ -7,11 +7,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView.Recycler
 import com.example.ascendion.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
+
+    var data = arrayOf("india","hindi","tiger","himalaya","india","hindi","tiger","himalaya",)
 
     // This property is only valid between onCreateView and
     // onDestroyView.
