@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ascendion.R
+import com.example.ascendion.datastorage.Item
 
-class DataAdapter(var data: Array<String>):RecyclerView.Adapter<DataAdapter.DataViewHolder>() {
+class DataAdapter(var data: List<Item>):RecyclerView.Adapter<DataAdapter.DataViewHolder>() {
 
    var TAG = DataAdapter::class.java.simpleName
 
@@ -26,7 +27,7 @@ class DataAdapter(var data: Array<String>):RecyclerView.Adapter<DataAdapter.Data
 
     override fun onBindViewHolder(naveenViewHolder: DataViewHolder, position: Int) {
         Log.i(TAG,"given by naveen , vignika is writing "+ data[position])
-        naveenViewHolder.tvRowItem.text = data[position]
+        naveenViewHolder.tvRowItem.text = data[position].itemName
     }
 
     class DataViewHolder(rowPlank: View):RecyclerView.ViewHolder(rowPlank) {
