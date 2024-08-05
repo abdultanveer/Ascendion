@@ -8,10 +8,16 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.ascendion.databinding.FragmentNotificationsBinding
+import com.example.ascendion.datastorage.Item
+import com.example.ascendion.datastorage.ItemDao
+import com.example.ascendion.datastorage.ItemRoomDatabase
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class NotificationsFragment : Fragment() {
 
     private var _binding: FragmentNotificationsBinding? = null
+    lateinit var dao: ItemDao
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -33,6 +39,22 @@ class NotificationsFragment : Fragment() {
             textView.text = it
         }
         return root
+    }
+
+    override fun onStart() {
+        super.onStart()
+        var  database = ItemRoomDatabase.getDatabase(activity!!.applicationContext)
+        dao = database.itemDao()
+        binding.btnInsert.setOnClickListener {
+            insertItemDb()
+        }
+    }
+
+    private fun insertItemDb() {
+        var mItem = Item(11,"fruits",111.11,1)
+        GlobalScope.launch {
+            dao.insert(mItem)
+        }
     }
 
     override fun onDestroyView() {
