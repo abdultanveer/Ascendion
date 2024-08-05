@@ -11,6 +11,10 @@ import com.example.ascendion.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
+    //var count = 0
+    lateinit var homeViewModel: HomeViewModel
+
+
     private var _binding: FragmentHomeBinding? = null
 
     // This property is only valid between onCreateView and
@@ -22,17 +26,28 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
+         homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        binding.tvHome.text = ""+ homeViewModel.count
 
         val textView: TextView = binding.textHome
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root
+    }
+
+    override fun onStart() {
+        super.onStart()
+        binding.btnInc.setOnClickListener {
+            homeViewModel.incrementCount()
+            binding.tvHome.text = ""+homeViewModel.count
+
+           // count++
+           // binding.tvHome.text = ""+count
+        }
     }
 
     override fun onDestroyView() {
