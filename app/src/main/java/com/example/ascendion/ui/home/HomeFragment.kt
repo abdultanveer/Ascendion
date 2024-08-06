@@ -37,10 +37,10 @@ class HomeFragment : Fragment() {
         binding.tvHome.text = ""+ homeViewModel.count
 
         val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
+      /*  homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
             binding.ivMarsphoto.load(it)
-        }
+        }*/
 
         homeViewModel.marsPhotosList.observe(viewLifecycleOwner){
             binding.jsonList.layoutManager = LinearLayoutManager(context)
