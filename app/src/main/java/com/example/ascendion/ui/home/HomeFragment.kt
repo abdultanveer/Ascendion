@@ -58,6 +58,17 @@ class HomeFragment : Fragment() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        binding.btnJson.setOnClickListener {
+            getJson()
+        }
+    }
+
+    private fun getJson() {
+        TODO("Not yet implemented")
+    }
 
 
     override fun onDestroyView() {

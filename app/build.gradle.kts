@@ -42,6 +42,11 @@ android {
 }
 
 dependencies {
+//retrofit dependencies
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+// Retrofit with Scalar Converter
+    implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
 
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
@@ -53,7 +58,7 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
     implementation("androidx.navigation:navigation-ui-ktx:2.6.0")
     implementation("androidx.room:room-common:2.7.0-alpha05")
-   // implementation("androidx.room:room-compiler:2.7.0-alpha05")
+    //room dependencies
     kapt ("androidx.room:room-compiler:2.6.0")
 
     implementation("androidx.room:room-ktx:2.7.0-alpha05")
