@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import coil.load
 import com.example.ascendion.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -36,6 +37,7 @@ class HomeFragment : Fragment() {
         val textView: TextView = binding.textHome
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
+            binding.ivMarsphoto.load(it)
         }
         return root
     }

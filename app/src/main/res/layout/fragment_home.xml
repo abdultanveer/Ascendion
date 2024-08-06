@@ -59,4 +59,14 @@
         android:text="json"
         app:layout_constraintStart_toStartOf="@+id/btnTimer"
         app:layout_constraintTop_toBottomOf="@+id/btnTimer" />
+
+    <ImageView
+        android:id="@+id/ivMarsphoto"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="47dp"
+        app:layout_constraintStart_toStartOf="@+id/tvHome"
+        app:layout_constraintTop_toBottomOf="@+id/tvHome"
+        tools:src="@tools:sample/avatars" />
 </androidx.constraintlayout.widget.ConstraintLayout>
