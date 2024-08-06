@@ -5,6 +5,9 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.ascendion.network.MarsApi
+import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
     var count = 0
@@ -37,4 +40,12 @@ var TAG = HomeViewModel::class.java.simpleName
 
         }.start()
     }
+     fun getMarsPhotos() {
+        viewModelScope.launch {
+            val listResult = MarsApi.retrofitService.getPhotos()
+            Log.i(TAG,listResult)
+        }
+
+    }
+
 }

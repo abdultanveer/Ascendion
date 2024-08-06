@@ -62,13 +62,11 @@ class HomeFragment : Fragment() {
         super.onResume()
 
         binding.btnJson.setOnClickListener {
-            getJson()
+           homeViewModel.getMarsPhotos()
         }
     }
 
-    private fun getJson() {
-        TODO("Not yet implemented")
-    }
+
 
 
     override fun onDestroyView() {
