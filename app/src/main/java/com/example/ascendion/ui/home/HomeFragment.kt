@@ -8,8 +8,10 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
 import com.example.ascendion.databinding.FragmentHomeBinding
+import com.example.ascendion.ui.dashboard.DataAdapter
 
 class HomeFragment : Fragment() {
 
@@ -38,6 +40,11 @@ class HomeFragment : Fragment() {
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
             binding.ivMarsphoto.load(it)
+        }
+
+        homeViewModel.marsPhotosList.observe(viewLifecycleOwner){
+            binding.jsonList.layoutManager = LinearLayoutManager(context)
+            binding.jsonList.adapter = DataAdapter(it)
         }
         return root
     }

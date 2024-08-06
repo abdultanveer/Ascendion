@@ -54,8 +54,8 @@ class DashboardFragment : Fragment() {
         //put the plug into the adapter
         GlobalScope.launch(Dispatchers.Main) {
             var data = dao.getItems().first()
-            var dataAdapter = DataAdapter(data)
-            binding.recyclerview.adapter = dataAdapter
+           // var dataAdapter = DataAdapter(data)
+          //  binding.recyclerview.adapter = dataAdapter
 
 
         }

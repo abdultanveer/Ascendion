@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ascendion.R
-import com.example.ascendion.datastorage.Item
+import com.example.ascendion.network.MarsPhoto
 
-class DataAdapter(var data: List<Item>):RecyclerView.Adapter<DataAdapter.DataViewHolder>() {
+class DataAdapter(var data: List<MarsPhoto>):RecyclerView.Adapter<DataAdapter.DataViewHolder>() {
 
    var TAG = DataAdapter::class.java.simpleName
 
@@ -27,7 +27,7 @@ class DataAdapter(var data: List<Item>):RecyclerView.Adapter<DataAdapter.DataVie
 
     override fun onBindViewHolder(naveenViewHolder: DataViewHolder, position: Int) {
         Log.i(TAG,"given by naveen , vignika is writing "+ data[position])
-        naveenViewHolder.tvRowItem.text = data[position].itemName
+        naveenViewHolder.tvRowItem.text = data[position].id
     }
 
     class DataViewHolder(rowPlank: View):RecyclerView.ViewHolder(rowPlank) {

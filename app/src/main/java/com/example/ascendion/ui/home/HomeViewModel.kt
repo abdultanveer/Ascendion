@@ -7,11 +7,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ascendion.network.MarsApi
+import com.example.ascendion.network.MarsPhoto
 import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
     var count = 0
     var _seconds  = MutableLiveData<Int> ()  //MutableLiveData  == observable
+    var marsPhotosList = MutableLiveData<List<MarsPhoto>>()
    // var seconds:Int = 0
     lateinit var timer:CountDownTimer
 
@@ -43,6 +45,7 @@ var TAG = HomeViewModel::class.java.simpleName
      fun getMarsPhotos() {
         viewModelScope.launch {
             val listResult = MarsApi.retrofitService.getPhotos()
+            marsPhotosList.value = listResult
             _text.value = listResult.get(0).imgUrl
             Log.i(TAG,listResult.get(0).imgUrl)
         }
