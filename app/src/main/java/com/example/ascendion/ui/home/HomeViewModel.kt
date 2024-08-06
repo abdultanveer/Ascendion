@@ -43,6 +43,7 @@ var TAG = HomeViewModel::class.java.simpleName
      fun getMarsPhotos() {
         viewModelScope.launch {
             val listResult = MarsApi.retrofitService.getPhotos()
+            _text.value = listResult
             Log.i(TAG,listResult)
         }
 
